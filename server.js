@@ -30,6 +30,24 @@ const { use } = require('express/lib/application');
 
 const {con} = require('./soupx/conn');
 
+// const exploreLeadsTable = `
+//     CREATE TABLE IF NOT EXISTS explore_leads(
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     phone VARCHAR(15),
+//     verification VARCHAR(15),
+//     )
+// `;
+// con.query(exploreLeadsTable, (error, results) => {
+//     if (error) {
+//         console.error('Error executing query: ', error);
+//         return;
+//     }
+//     console.log('Query results:', results);
+// });
+
+con.query('CREATE TABLE IF NOT EXISTS explore_leads(id int NOT NULL AUTO_INCREMENT, phone varchar(30), verification varchar(10), PRIMARY KEY(id));', function(error, result, fields) {
+    // console.log(result);
+  });
 const subscriptionsTable = `
 CREATE TABLE IF NOT EXISTS subscriptions (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -55,6 +73,7 @@ CREATE TABLE IF NOT EXISTS subscriptions (
   )
 `;
 
+
 con.query(subscriptionsTable, (error, results) => {
     if (error) {
         console.error('Error executing query: ', error);
@@ -63,23 +82,6 @@ con.query(subscriptionsTable, (error, results) => {
     console.log('Query results:', results);
 });
 
-// const query = "DROP TABLE IF EXISTS subscriptions";
-
-// con.query(query, (error, results) => {
-//     if (error) {
-//         console.error('Error executing query: ', error);
-//         return;
-//     }
-//     console.log('Query results:', results);
-// });
-
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected!");
-//   con.query('CREATE TABLE IF NOT EXISTS explore_leads(id int NOT NULL AUTO_INCREMENT, phone varchar(30), verification varchar(10), PRIMARY KEY(id));', function(error, result, fields) {
-//     // console.log(result);
-//   });
-// });
 
 const sub_leads = `
     CREATE TABLE IF NOT EXISTS subLeads(

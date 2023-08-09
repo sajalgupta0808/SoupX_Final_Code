@@ -1,10 +1,10 @@
-const mysql = require('mysql');
+var mysql = require('mysql');
 var con = mysql.createConnection({
-    host: "ls-46de0f009be6ac57131adc488c1fc7cc6b22ffd9.cpjdlt4ax3rv.ap-south-1.rds.amazonaws.com",
+    host: "ls-15766b122b05d26f17df2b4847f89b09e2d3e984.cpjdlt4ax3rv.ap-south-1.rds.amazonaws.com",
     port: 3306,
-    user: "admin",
-    password: "admin_SoupX",
-    database: "SoupX_Db",
+    user: "dbmasteruser",
+    password: "Pf~h?[&(k3+H5?&o#A8*ZvF0G8V]xHsD",
+    database: "SoupX_DB",
 });
 
 con.connect((error) => {
@@ -13,6 +13,7 @@ con.connect((error) => {
         return;
     }
     console.log("Database Connected");
-})
+});
+
 
 module.exports = {con};
